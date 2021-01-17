@@ -7,7 +7,62 @@
 <body>
   <script>
 
+  	function game() {
 
+	  	function playerSelection(answer) {
+  			answer = prompt("Please enter rock, paper, or scissors: ");
+	  		if (answer == "rock") {
+	  			return answer
+	  		} else if (answer == "paper") {
+	  			return answer
+	  		} else if (answer == "scissors") {
+	  			return answer
+	  		} else {
+	  			alert("That is not an acceptable input, please try again")
+	  			return playerSelection()
+	  		}
+	  	};
+
+	  	let player = playerSelection();
+	  	alert("You chose " + player)
+
+	  	function computerPlay() {
+	  		let rand = Math.floor(Math.random() * 3)
+	  		if (rand == 0) {
+	  			return "rock"
+	  		} else if (rand == 1) {
+	  			return "paper"
+	  		} else {
+	  			return "scissors"
+	  		}
+	  	};
+
+	  	let computer = computerPlay();
+	  	alert("The computer chose " + computer)
+
+	  	if (player == "rock" && computer == "scissors") {
+	  		alert("Congratulations, you win!")
+	  	} else if (player == "rock" && computer == "paper") {
+	  		alert("Sorry! You lose. LOSER!")
+	  	} else if (player == "rock" && computer == "rock") {
+	  		alert("It's a tie!")
+	  	} else if (player == "paper" && computer == "rock") {
+	  		alert("Congratulations, you win!")
+	  	} else if (player == "paper" && computer == "scissors") {
+	  		alert("You lose! LOSER!")
+	  	} else if (player == "paper" && computer == "paper") {
+	  		alert("It's a tie!")
+	  	} else if (player == "scissors" && computer == "paper") {
+	  		alert("Congratulations, you win!")
+	  	} else if (player == "scissors" && computer == "rock") {
+	  		alert("You lose! LOSER!")
+	  	} else {
+	  		alert("It's a tie!")
+	  	}
+
+	};
+	
+	game();
 
   </script>
 </body>
