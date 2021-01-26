@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Page Title</title>
+  <meta charset="UTF-8"/>
+</head>
+<body>
+
+
+	<header>Please select rock, paper, or scissors</header>
+	<br>
+	<br>
+	<div id="container">
+		<button data-btn="rock" class="btn">Rock</button>
+		<button data-btn="paper" class="btn">Paper</button>
+		<button data-btn="scissors" class="btn">Scissors</button>
+	</div>
+
+
+
+
+  <script>
+
+  	const container = document.querySelector('#container');
+	const btn = document.querySelector('button');
+	const btns = document.querySelectorAll('button');
+	btns.forEach(btn => btn.addEventListener('click', playRound));
+
+  	function playRound(e) {
+
+  		// console.log(this);
+  		const text = "";
+  		function addDiv(text) {
+  			const div = document.createElement('div');
+			div.textContent = `${text}`;
+			container.appendChild(div);
+  		}
+
+
+	  	function playerSelection(e) {
+
+	  		
+	  		const answer = e.getAttribute("data-btn");
+			
+	
+	  		if (answer == "rock") {
+	  			return answer
+	  		} else if (answer == "paper") {
+	  			return answer
+	  		} else if (answer == "scissors") {
+	  			return answer
+	  		} 
+	  	};
+
+
+	  	const player = playerSelection(this);
+	  	addDiv("You chose " + player)
+
+
+	  	function computerPlay() {
+	  		let rand = Math.floor(Math.random() * 3)
+	  		if (rand == 0) {
+	  			return "rock"
+	  		} else if (rand == 1) {
+	  			return "paper"
+	  		} else {
+	  			return "scissors"
+	  		}
+	  	};
+
+
+	  	let computer = computerPlay();
+	  	addDiv("The computer chose " + computer)
+
+
+	  	if (player == "rock" && computer == "scissors") {
+	  		addDiv("Congratulations, you win!")
+	  	} else if (player == "rock" && computer == "paper") {
+	  		addDiv("Sorry! You lose. LOSER!")
+	  	} else if (player == "rock" && computer == "rock") {
+	  		addDiv("It's a tie!")
+	  	} else if (player == "paper" && computer == "rock") {
+	  		addDiv("Congratulations, you win!")
+	  	} else if (player == "paper" && computer == "scissors") {
+	  		addDiv("You lose! LOSER!")
+	  	} else if (player == "paper" && computer == "paper") {
+	  		addDiv("It's a tie!")
+	  	} else if (player == "scissors" && computer == "paper") {
+	  		addDiv("Congratulations, you win!")
+	  	} else if (player == "scissors" && computer == "rock") {
+	  		addDiv("You lose! LOSER!")
+	  	} else {
+	  		addDiv("It's a tie!")
+	  	}
+
+	};
+
+
+
+  </script>
+</body>
+</html>
